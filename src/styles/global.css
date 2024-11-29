@@ -1,0 +1,10 @@
+.fade-in {
+  transition:
+    color 0.3s ease-in-out,
+    text-shadow 0.3s ease-in-out;
+}
+
+.fade-in:hover {
+  color: inherit;
+  text-shadow: inherit;
+}

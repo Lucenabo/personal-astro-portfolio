@@ -1,0 +1,33 @@
+---
+import { Icon } from "astro-icon/components"
+
+interface Props {
+  iconName: string,
+  color: string
+}
+
+const { iconName, color } = Astro.props
+
+---
+
+<div id="card-language">
+<Icon class="text-9xl m-0"color={color} name={iconName}/>
+</div>
+<style>
+    #card-language {
+        width: 150px;
+        height: 150px;
+        background: #383838fc;
+        display: block;
+        border: 1px solid #5b5b5b;
+        border-radius: .5rem;
+        cursor: pointer;
+        overflow: hidden;
+        transition: all .3s ease-in-out;
+    }
+    #card-language:hover {
+        transform: scale(1.1);
+        z-index: 10;
+    }
+
+</style>

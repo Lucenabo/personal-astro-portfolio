@@ -1,0 +1,53 @@
+---
+interface Props {
+  title: string;
+  borderColor: string;
+  width: string;
+  height: string;
+}
+
+// Desestructuramos los props que se pasan al componente
+const { title, borderColor, width, height } = Astro.props;
+
+---
+
+<div id="big-div"
+  class={`p-6 bg-[#383838] rounded-lg ${borderColor}`}
+  style={`
+  display: block;
+  width: ${width};
+  height: ${height};
+  box-shadow: 0 0 10px ${borderColor}, 0 0 20px ${borderColor}, 0 0 30px ${borderColor}, 0 0 40px ${borderColor}`}
+>
+  <h2 id="h2-card" class="text-xl font-bold mb-4 text-white">{title}</h2>
+  <div class="text-gray-300 slot-container">
+    <slot />
+  </div>
+</div>
+<script >
+
+const h2Card = document.getElementById("h2-card");
+  const bigDiv = document.getElementById("big-div");
+
+  if (h2Card && h2Card.textContent.trim() === "") {
+    bigDiv?.removeChild(h2Card);
+  }
+
+</script>
+
+
+<style>
+  .slot-container {
+    transition: none;
+  }
+  div {
+      margin: 0;
+  }
+  #big-div {
+    transition: transform 0.2s ease-in-out;
+    margin: 10px;
+  }
+  #big-div:hover {
+    transform: scale(1.1);
+  }
+</style>

@@ -1,16 +1,70 @@
 ---
+// Web routes
+import Layout from "../layout/Layout.astro";
+import Card from "../components/Card.astro";
+import { colors, wordColors } from "../utils/neonColors";
+import ColumLayout from "../layout/ColumLayout.astro";
+import WordNeonColor from "../components/WordNeonColor"
+import LanguageCard from "../components/LanguageCard.astro";
+
+// Web values
+const titlePage = "Alejandro Lucena - Developer"
+
+// Functions
+import { Icon } from "astro-icon/components"
 
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout titlePage={titlePage}  >
+
+<Card borderColor={colors.purple} width="600px" height="500px" title="">
+<p class="text-xl">
+Mi nombre es <WordNeonColor client:load word="Alejandro Lucena" color={wordColors.blue} effect={true} /> y soy estudiante de desarrollo de aplicaciones multiplataforma,
+soy <WordNeonColor client:load word="autodidacta" color={wordColors.darkblue} effect={true}/> así que aprendí desarrollo web por mi cuenta.
+</p>
+
+<hr>
+
+<p class="text-xl">
+Tengo más de un año de experiencia en <WordNeonColor client:load word="Java" color={wordColors.orange} effect={true}/> y varios meses con
+<WordNeonColor client:load word="JavaScript" color={wordColors.yellow} effect={true}  />.
+Me gusta mucho obtener conocimientos aparte de lo que me explican en clase.
+</p>
+
+<LanguageCard color="orange" iconName="mdi:language-java"/>
+
+</Card>
+
+<ColumLayout>
+
+<Card borderColor={colors.blue} width="350px" height="242px" title="1">
+
+</Card>
+
+<Card borderColor={colors.green} width="350px" height="242px" title="2">
+
+</Card>
+
+</ColumLayout>
+
+<ColumLayout>
+<Card borderColor={colors.red} width="450px" height="242px" title="3">
+
+</Card>
+
+<Card borderColor={colors.yellow} width="450px" height="242px" title="4">
+
+</Card>
+
+</ColumLayout>
+
+
+
+</Layout>
+<style>
+ hr {
+    border: 1px solid rgb(91, 91, 91);
+    width: 100%;
+    margin: 20px 0;
+ }
+</style>
