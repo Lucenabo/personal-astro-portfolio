@@ -21,7 +21,7 @@ function WordNeonColor({ word, color = "rgba(128, 0, 128, 0.5)", effect }) {
   return (
     <span
       id="wordNeon"
-      class={effect ? "fade-in" : ""}
+      className={effect ? "fade-in" : ""}
       style={
         effect ? neonStyle : { textShadow: `0 0 10px ${color}`, color: color }
       }

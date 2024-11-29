@@ -4,19 +4,20 @@ interface Props {
   borderColor: string;
   width: string;
   height: string;
+  align?: boolean;
+  blue?: boolean;
 }
 
-// Desestructuramos los props que se pasan al componente
-const { title, borderColor, width, height } = Astro.props;
-
+const { title, borderColor, width, height, align, blue } = Astro.props;
 ---
 
 <div id="big-div"
-  class={`p-6 bg-[#383838] rounded-lg ${borderColor}`}
+  class={`p-6 bg-[#383838] rounded-lg ${borderColor} ${blue ? 'hover-blue' : ''}`}
   style={`
   display: block;
   width: ${width};
   height: ${height};
+  text-align: ${align ? 'center' : 'left'};
   box-shadow: 0 0 10px ${borderColor}, 0 0 20px ${borderColor}, 0 0 30px ${borderColor}, 0 0 40px ${borderColor}`}
 >
   <h2 id="h2-card" class="text-xl font-bold mb-4 text-white">{title}</h2>
@@ -24,12 +25,12 @@ const { title, borderColor, width, height } = Astro.props;
     <slot />
   </div>
 </div>
-<script >
+<script>
 
-const h2Card = document.getElementById("h2-card");
+  const h2Card = document.getElementById("h2-card");
   const bigDiv = document.getElementById("big-div");
 
-  if (h2Card && h2Card.textContent.trim() === "") {
+  if (h2Card && h2Card.textContent?.trim() === "") {
     bigDiv?.removeChild(h2Card);
   }
 
@@ -37,11 +38,12 @@ const h2Card = document.getElementById("h2-card");
 
 
 <style>
-  .slot-container {
+.slot-container {
     transition: none;
   }
   div {
       margin: 0;
+      cursor: pointer;
   }
   #big-div {
     transition: transform 0.2s ease-in-out;
@@ -50,4 +52,15 @@ const h2Card = document.getElementById("h2-card");
   #big-div:hover {
     transform: scale(1.1);
   }
-</style>
+  .hover-blue h2,
+  .hover-blue .slot-container {
+    color: white;
+    transition: color 0.2s ease-in-out;
+  }
+
+  .hover-blue:hover h2,
+  .hover-blue:hover .slot-container {
+    color: #1a88ff;
+    transition: color 0.2s ease-in-out;
+  }
+  </style>

@@ -17,48 +17,71 @@ import { Icon } from "astro-icon/components"
 
 <Layout titlePage={titlePage}  >
 
-<Card borderColor={colors.purple} width="600px" height="500px" title="">
+<Card borderColor={colors.purple} width="600px" height="510px" title="">
 <p class="text-xl">
 Mi nombre es <WordNeonColor client:load word="Alejandro Lucena" color={wordColors.blue} effect={true} /> y soy estudiante de desarrollo de aplicaciones multiplataforma,
 soy <WordNeonColor client:load word="autodidacta" color={wordColors.darkblue} effect={true}/> así que aprendí desarrollo web por mi cuenta.
 </p>
-
 <hr>
-
 <p class="text-xl">
 Tengo más de un año de experiencia en <WordNeonColor client:load word="Java" color={wordColors.orange} effect={true}/> y varios meses con
 <WordNeonColor client:load word="JavaScript" color={wordColors.yellow} effect={true}  />.
 Me gusta mucho obtener conocimientos aparte de lo que me explican en clase.
 </p>
-
-<LanguageCard color="orange" iconName="mdi:language-java"/>
-
+<div class="flex gap-11 mt-12" >
+<LanguageCard showBorderAndShadow={true} set="si" color="#3358ff" iconName="SiMysql" />
+<LanguageCard showBorderAndShadow={true} set="fa" color="orange" iconName="FaJava"/>
+<LanguageCard showBorderAndShadow={true} set="fa" color="#00DF7F" iconName="FaAndroid"/>
+</div>
 </Card>
 
 <ColumLayout>
+<Card align={true} borderColor={colors.blue} width="350px" height="242px" title="Skills">
 
-<Card borderColor={colors.blue} width="350px" height="242px" title="1">
+<div class="wrapper flex gap-4">
+<div class="first">
+<LanguageCard set="fa" color="#000" iconName="FaGithub"/>
+</div>
+
+<div class="second">
+<LanguageCard set="si" color="#f0db4f" iconName="SiJavascript" />
+</div>
+
+<div class="third">
+<LanguageCard set="fa" color="#61DBFB" iconName="FaReact"/>
+</div>
+
+<div class="fourth">
+<LanguageCard set="si" color="#ff5a03" iconName="SiAstro" />
+</div>
+
+<div class="fifth">
+<LanguageCard set="fa" color="#FFF" iconName="FaLinux"/>
+</div>
+
+</div>
 
 </Card>
-
-<Card borderColor={colors.green} width="350px" height="242px" title="2">
-
+<Card align={true} borderColor={colors.green} width="350px" height="242px" title="Certificaciones Recientes">
+<Icon class="text-9xl flex m-auto" name="cambridge"/>
+<p>First Certificate in English B2</p>
 </Card>
-
 </ColumLayout>
 
 <ColumLayout>
-<Card borderColor={colors.red} width="450px" height="242px" title="3">
-
+<Card borderColor={colors.red} width="450px" height="242px" title="Experiencia profesional">
+<p>
+Ahora mismo me encuentro estudiando y no he tenido la oportunidad de adquirir experiencia laboral.
+He tenido la oportunidad de ser <WordNeonColor word="contactado" color="#fff" effect={false} /> por algunas empresas interesadas en mi perfil,
+pero debido a compromisos académicos y la incompatibilidad horaria, no he podido aceptar
+esas propuestas en su momento. 😅 🧑🏻‍🎓
+</p>
 </Card>
-
-<Card borderColor={colors.yellow} width="450px" height="242px" title="4">
-
+<a href="/">
+<Card blue={true} borderColor={colors.yellow} width="450px" height="242px" title="Publicaciones">
 </Card>
-
+</a>
 </ColumLayout>
-
-
 
 </Layout>
 <style>
@@ -67,4 +90,5 @@ Me gusta mucho obtener conocimientos aparte de lo que me explican en clase.
     width: 100%;
     margin: 20px 0;
  }
+
 </style>
