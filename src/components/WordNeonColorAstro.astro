@@ -1,0 +1,40 @@
+
+---
+type Props = {
+  word: string;
+  color?: string;
+  effect?: boolean;
+};
+
+const {
+  word = "",
+  color = "rgba(128, 0, 128, 0.5)",
+  effect = false
+} = Astro.props;
+---
+
+<Fragment>
+  <span
+    id="wordNeon"
+    class={effect ? "fade-in" : ""}
+    style={effect ? `text-shadow: 0 0 10px ${color}, 0 0 10px ${color}, 0 0 10px ${color}, 0 0 10px ${color}; color: ${color};` : `text-shadow: 0 0 10px ${color}; color: ${color};`}
+  >
+    {word}
+  </span>
+</Fragment>
+
+<style>
+  /* Agrega la clase fade-in si deseas el efecto de desvanecimiento */
+  .fade-in {
+    animation: fadeIn 1s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+</style>

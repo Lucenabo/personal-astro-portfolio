@@ -6,6 +6,8 @@ import { colors, wordColors } from "../utils/neonColors";
 import ColumLayout from "../layout/ColumLayout.astro";
 import WordNeonColor from "../components/WordNeonColor"
 import LanguageCard from "../components/LanguageCard.astro";
+import TypeWritter from "../components/TypeWritter.astro";
+import WordNeonColorAstro from "../components/WordNeonColorAstro.astro";
 
 // Web values
 const titlePage = "Alejandro Lucena - Developer"
@@ -15,18 +17,38 @@ import { Icon } from "astro-icon/components"
 
 ---
 
-<Layout titlePage={titlePage}  >
+<Layout language="en" titlePage={titlePage} >
 
+<div class="gap-4 mb-8 text-white flex flex-col" style="margin-right: 1050px;">
+<h1 class="text-5xl ">Alejandro Lucena </h1>
+<h2>
+<TypeWritter
+text="Web, Android and Java developer"
+speed={150} delay={1000} showBlink={false}/>
+
+<!--
+<WordNeonColorAstro word="Web" color={wordColors.yellow} effect={false} />,
+  <WordNeonColorAstro word="Web" color={wordColors.yellow} effect={false} />,
+   and
+   <WordNeonColorAstro word="Web" color={wordColors.yellow} effect={false} />
+  developer
+-->
+
+</h2>
+
+</div>
+
+<div style="display: flex; ">
 <Card borderColor={colors.purple} width="600px" height="510px" title="">
 <p class="text-xl">
-Mi nombre es <WordNeonColor client:load word="Alejandro Lucena" color={wordColors.blue} effect={true} /> y soy estudiante de desarrollo de aplicaciones multiplataforma,
-soy <WordNeonColor client:load word="autodidacta" color={wordColors.darkblue} effect={true}/> así que aprendí desarrollo web por mi cuenta.
+My name is <WordNeonColor client:load word="Alejandro Lucena" color={wordColors.blue} effect={true} /> and I am a student of cross-platform application development,
+I am <WordNeonColor client:load word="self-taught" color={wordColors.darkblue} effect={true}/> so I learned web development on own.
 </p>
 <hr>
 <p class="text-xl">
-Tengo más de un año de experiencia en <WordNeonColor client:load word="Java" color={wordColors.orange} effect={true}/> y varios meses con
+I have over a year of experience in <WordNeonColor client:load word="Java" color={wordColors.orange} effect={true}/> and some months in
 <WordNeonColor client:load word="JavaScript" color={wordColors.yellow} effect={true}  />.
-Me gusta mucho obtener conocimientos aparte de lo que me explican en clase.
+I really enjoy learning on my own in addition to what is taught in class.
 </p>
 <div class="flex gap-11 mt-12" >
 <LanguageCard showBorderAndShadow={true} set="si" color="#3358ff" iconName="SiMysql" />
@@ -59,29 +81,50 @@ Me gusta mucho obtener conocimientos aparte de lo que me explican en clase.
 <LanguageCard set="fa" color="#FFF" iconName="FaLinux"/>
 </div>
 
+<div class="sixth">
+<LanguageCard set="fa" color="#ff873d" iconName="FaGitAlt"/>
+</div>
+
+<div class="seventh">
+<LanguageCard set="fa" color="orange" iconName="FaJava"/>
+</div>
+
+<div class="eighth">
+<LanguageCard set="si" color="#3358ff" iconName="SiMysql" />
+</div>
+
+<div class="ninth">
+<LanguageCard set="fa" color="#00DF7F" iconName="FaAndroid"/>
+</div>
+
 </div>
 
 </Card>
-<Card align={true} borderColor={colors.green} width="350px" height="242px" title="Certificaciones Recientes">
+<Card align={true} borderColor={colors.green} width="350px" height="242px" title="Recent Certification">
 <Icon class="text-9xl flex m-auto" name="cambridge"/>
 <p>First Certificate in English B2</p>
 </Card>
 </ColumLayout>
 
 <ColumLayout>
-<Card borderColor={colors.red} width="450px" height="242px" title="Experiencia profesional">
+<Card borderColor={colors.red} width="450px" height="242px" title="Professional Expereience">
 <p>
-Ahora mismo me encuentro estudiando y no he tenido la oportunidad de adquirir experiencia laboral.
-He tenido la oportunidad de ser <WordNeonColor word="contactado" color="#fff" effect={false} /> por algunas empresas interesadas en mi perfil,
-pero debido a compromisos académicos y la incompatibilidad horaria, no he podido aceptar
-esas propuestas en su momento. 😅 🧑🏻‍🎓
+At the moment, I am studying and have not had the opportunity to gain professional experience. I have been
+<WordNeonColor word="contacted" color="#fff" effect={false} /> by some companies interested in my profile,
+but due to academic commitments and scheduling conflicts, I was unable to accept those offers at the time. 😅 🧑🏻‍🎓
 </p>
 </Card>
 <a href="/">
-<Card blue={true} borderColor={colors.yellow} width="450px" height="242px" title="Publicaciones">
+<Card blue={true} borderColor={colors.yellow} width="450px" height="242px" title="Posts">
+<p>
+Welcome to my posts page! Here, I share insights, tutorials, and experiences related to development and technologies.
+Stay tuned for regular updates and feel free to engage with the content!
+</p>
 </Card>
 </a>
 </ColumLayout>
+
+</div>
 
 </Layout>
 <style>

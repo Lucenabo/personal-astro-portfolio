@@ -4,6 +4,12 @@
     text-shadow 0.3s ease-in-out;
 }
 
+.left-aligned {
+  align-items: flex-start !important; /* Override any centering */
+  justify-content: flex-start !important; /* Align to the left */
+  text-align: left;
+}
+
 .fade-in:hover {
   color: inherit;
   text-shadow: inherit;

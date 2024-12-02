@@ -1,0 +1,79 @@
+---
+import "./typeWritter.css";
+
+type Props = {
+  text: string;
+  delay?: number;
+  speed?: number;
+  showBlink?: boolean;
+  wordClass?: string;
+};
+
+const {
+  text = "",
+  delay = 0,
+  speed = 200,
+  showBlink = true,
+  wordClass = "",
+} = Astro.props;
+---
+
+<Fragment>
+  <div class="typewriter">
+    {showBlink && <span class="cursor blink">|</span>}
+  </div>
+</Fragment>
+
+<script define:vars={{ speed, text, delay, wordClass }}>
+  const container = document.querySelector(".typewriter");
+  const blink = document.querySelector(".blink");
+  const textString = Array.from(text);
+  let index = 0;
+  let timer = null;
+  let deleting = false;
+
+  function createAnimatedNode(char) {
+    const span = document.createElement("span");
+    span.className = wordClass;
+    span.innerText = char === " " ? "\u00A0" : char; // Use non-breaking space for spaces
+    return span;
+  }
+
+  function animate() {
+    if (!deleting) {
+      // Escribiendo el texto
+      if (index < textString.length) {
+        let char = textString[index];
+        container.insertBefore(createAnimatedNode(char), blink);
+        index++;
+      } else {
+        deleting = true;  // Comienza a borrar cuando todo esté escrito
+      }
+    } else {
+      // Borrando el texto
+      if (index > 1) {
+        container.removeChild(container.lastChild);
+        index--;
+      } else {
+        deleting = false;  // Empieza a escribir nuevamente
+      }
+    }
+
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      requestAnimationFrame(() => {
+        animate();
+      });
+    }, speed);
+  }
+
+  function start() {
+    requestAnimationFrame(() => {
+      animate();
+    });
+  }
+
+  if (container) {
+    setTimeout(start, delay);
+  }
+</script>

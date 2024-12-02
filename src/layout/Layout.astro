@@ -1,12 +1,15 @@
 ---
+import LanguageCard from '../components/LanguageCard.astro'
+
 interface Props {
   titlePage: string
+  language: string
 }
 
-const { titlePage } = Astro.props
+const { titlePage, language } = Astro.props
 
 ---
-<html lang="en">
+<html lang={language}>
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -22,13 +25,12 @@ const { titlePage } = Astro.props
 	height: 100vh;
 	}
 	body {
-	margin: 0;
 	background-color: #242424;
-	align-content: center;
 	display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
 	}
 	</style>
 </html>
