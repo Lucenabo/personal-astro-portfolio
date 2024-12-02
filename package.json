@@ -2,7 +2,6 @@
   "name": "portfolio",
   "type": "module",
   "version": "0.0.1",
-  "packageManager": "123!@#pnpm@9.14.4",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -29,5 +28,6 @@
   "devDependencies": {
     "prettier": "^3.4.1",
     "prettier-plugin-astro": "^0.14.1"
-  }
+  },
+  "packageManager": "pnpm@9.4.0"
 }
