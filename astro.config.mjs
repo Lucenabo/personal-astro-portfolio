@@ -7,13 +7,18 @@ import react from "@astrojs/react";
 
 import icon from "astro-icon";
 
+import netlify from "@astrojs/netlify";
+
 // https://astro.build/config
 export default defineConfig({
-  site: "https://lucenabo.github.io",
-  base: "lucenabo.github.io",
   i18n: {
     defaultLocale: "en",
     locales: ["en", "es"],
   },
+
   integrations: [tailwind(), react(), icon()],
+  output: "server",
+  adapter: netlify({
+    edgeMiddleware: true
+  }),
 });
