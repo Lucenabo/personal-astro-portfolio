@@ -4,134 +4,207 @@ import Layout from "../layout/Layout.astro";
 import Card from "../components/Card.astro";
 import { colors, wordColors } from "../utils/neonColors";
 import ColumLayout from "../layout/ColumLayout.astro";
-import WordNeonColor from "../components/WordNeonColor"
+import WordNeonColor from "../components/WordNeonColor";
 import LanguageCard from "../components/LanguageCard.astro";
 import TypeWritter from "../components/TypeWritter.astro";
 import WordNeonColorAstro from "../components/WordNeonColorAstro.astro";
 
 // Web values
-const titlePage = "Alejandro Lucena - Developer"
+const titlePage = "Alejandro Lucena - Developer";
 
 // Functions
-import { Icon } from "astro-icon/components"
-
+import { Icon } from "astro-icon/components";
 ---
 
-<Layout language="en" titlePage={titlePage} >
+<Layout language="en" titlePage={titlePage}>
+  <div
+    class="greeting gap-4 mb-8 text-white flex flex-col"
+    style="margin-right: 1050px;"
+  >
+    <h1 class="text-5xl">Alejandro Lucena</h1>
+    <h2>
+      <TypeWritter
+        text="Web, Android and Java developer"
+        speed={150}
+        delay={1000}
+        showBlink={false}
+      />
 
-<div class="gap-4 mb-8 text-white flex flex-col" style="margin-right: 1050px;">
-<h1 class="text-5xl ">Alejandro Lucena </h1>
-<h2>
-<TypeWritter
-text="Web, Android and Java developer"
-speed={150} delay={1000} showBlink={false}/>
-
-<!--
+      <!--
 <WordNeonColorAstro word="Web" color={wordColors.yellow} effect={false} />,
   <WordNeonColorAstro word="Web" color={wordColors.yellow} effect={false} />,
    and
    <WordNeonColorAstro word="Web" color={wordColors.yellow} effect={false} />
   developer
 -->
+    </h2>
+  </div>
 
-</h2>
+  <div id="bigger-div">
+    <Card borderColor={colors.purple} width="600px" height="510px" title="">
+      <p class="text-xl">
+        My name is <WordNeonColor
+          client:load
+          word="Alejandro Lucena"
+          color={wordColors.blue}
+          effect={true}
+        /> and I am a student of cross-platform application development, I am <WordNeonColor
+          client:load
+          word="self-taught"
+          color={wordColors.darkblue}
+          effect={true}
+        /> so I learned web development on own.
+      </p>
+      <hr />
+      <p class="text-xl">
+        I have over a year of experience in <WordNeonColor
+          client:load
+          word="Java"
+          color={wordColors.orange}
+          effect={true}
+        /> and some months in
+        <WordNeonColor
+          client:load
+          word="JavaScript"
+          color={wordColors.yellow}
+          effect={true}
+        />. I really enjoy learning on my own in addition to what is taught in
+        class.
+      </p>
+      <div class="flex gap-11 mt-12">
+        <LanguageCard
+          showBorderAndShadow={true}
+          set="si"
+          color="#3358ff"
+          iconName="SiMysql"
+        />
+        <LanguageCard
+          showBorderAndShadow={true}
+          set="fa"
+          color="orange"
+          iconName="FaJava"
+        />
+        <LanguageCard
+          showBorderAndShadow={true}
+          set="fa"
+          color="#00DF7F"
+          iconName="FaAndroid"
+        />
+      </div>
+    </Card>
 
-</div>
+    <ColumLayout>
+      <Card
+        align={true}
+        borderColor={colors.blue}
+        width="350px"
+        height="242px"
+        title="Skills"
+      >
+        <div class="wrapper flex gap-4">
+          <div class="first">
+            <LanguageCard set="fa" color="#000" iconName="FaGithub" />
+          </div>
 
-<div style="display: flex; ">
-<Card borderColor={colors.purple} width="600px" height="510px" title="">
-<p class="text-xl">
-My name is <WordNeonColor client:load word="Alejandro Lucena" color={wordColors.blue} effect={true} /> and I am a student of cross-platform application development,
-I am <WordNeonColor client:load word="self-taught" color={wordColors.darkblue} effect={true}/> so I learned web development on own.
-</p>
-<hr>
-<p class="text-xl">
-I have over a year of experience in <WordNeonColor client:load word="Java" color={wordColors.orange} effect={true}/> and some months in
-<WordNeonColor client:load word="JavaScript" color={wordColors.yellow} effect={true}  />.
-I really enjoy learning on my own in addition to what is taught in class.
-</p>
-<div class="flex gap-11 mt-12" >
-<LanguageCard showBorderAndShadow={true} set="si" color="#3358ff" iconName="SiMysql" />
-<LanguageCard showBorderAndShadow={true} set="fa" color="orange" iconName="FaJava"/>
-<LanguageCard showBorderAndShadow={true} set="fa" color="#00DF7F" iconName="FaAndroid"/>
-</div>
-</Card>
+          <div class="second">
+            <LanguageCard set="si" color="#f0db4f" iconName="SiJavascript" />
+          </div>
 
-<ColumLayout>
-<Card align={true} borderColor={colors.blue} width="350px" height="242px" title="Skills">
+          <div class="third">
+            <LanguageCard set="fa" color="#61DBFB" iconName="FaReact" />
+          </div>
 
-<div class="wrapper flex gap-4">
-<div class="first">
-<LanguageCard set="fa" color="#000" iconName="FaGithub"/>
-</div>
+          <div class="fourth">
+            <LanguageCard set="si" color="#ff5a03" iconName="SiAstro" />
+          </div>
 
-<div class="second">
-<LanguageCard set="si" color="#f0db4f" iconName="SiJavascript" />
-</div>
+          <div class="fifth">
+            <LanguageCard set="fa" color="#FFF" iconName="FaLinux" />
+          </div>
 
-<div class="third">
-<LanguageCard set="fa" color="#61DBFB" iconName="FaReact"/>
-</div>
+          <div class="sixth">
+            <LanguageCard set="fa" color="#ff873d" iconName="FaGitAlt" />
+          </div>
 
-<div class="fourth">
-<LanguageCard set="si" color="#ff5a03" iconName="SiAstro" />
-</div>
+          <div class="seventh">
+            <LanguageCard set="fa" color="orange" iconName="FaJava" />
+          </div>
 
-<div class="fifth">
-<LanguageCard set="fa" color="#FFF" iconName="FaLinux"/>
-</div>
+          <div class="eighth">
+            <LanguageCard set="si" color="#3358ff" iconName="SiMysql" />
+          </div>
 
-<div class="sixth">
-<LanguageCard set="fa" color="#ff873d" iconName="FaGitAlt"/>
-</div>
+          <div class="ninth">
+            <LanguageCard set="fa" color="#00DF7F" iconName="FaAndroid" />
+          </div>
+        </div>
+      </Card>
+      <Card
+        align={true}
+        borderColor={colors.green}
+        width="350px"
+        height="242px"
+        title="Recent Certification"
+      >
+        <Icon class="text-9xl flex m-auto" name="cambridge" />
+        <p>First Certificate in English B2</p>
+      </Card>
+    </ColumLayout>
 
-<div class="seventh">
-<LanguageCard set="fa" color="orange" iconName="FaJava"/>
-</div>
-
-<div class="eighth">
-<LanguageCard set="si" color="#3358ff" iconName="SiMysql" />
-</div>
-
-<div class="ninth">
-<LanguageCard set="fa" color="#00DF7F" iconName="FaAndroid"/>
-</div>
-
-</div>
-
-</Card>
-<Card align={true} borderColor={colors.green} width="350px" height="242px" title="Recent Certification">
-<Icon class="text-9xl flex m-auto" name="cambridge"/>
-<p>First Certificate in English B2</p>
-</Card>
-</ColumLayout>
-
-<ColumLayout>
-<Card borderColor={colors.red} width="450px" height="242px" title="Professional Expereience">
-<p>
-At the moment, I am studying and have not had the opportunity to gain professional experience. I have been
-<WordNeonColor word="contacted" color="#fff" effect={false} /> by some companies interested in my profile,
-but due to academic commitments and scheduling conflicts, I was unable to accept those offers at the time. 😅 🧑🏻‍🎓
-</p>
-</Card>
-<a href="/">
-<Card blue={true} borderColor={colors.yellow} width="450px" height="242px" title="Posts">
-<p>
-Welcome to my posts page! Here, I share insights, tutorials, and experiences related to development and technologies.
-Stay tuned for regular updates and feel free to engage with the content!
-</p>
-</Card>
-</a>
-</ColumLayout>
-
-</div>
-
+    <ColumLayout>
+      <Card
+        borderColor={colors.red}
+        width="450px"
+        height="242px"
+        title="Professional Expereience"
+      >
+        <p>
+          At the moment, I am studying and have not had the opportunity to gain
+          professional experience. I have been
+          <WordNeonColor word="contacted" color="#fff" effect={false} /> by some
+          companies interested in my profile, but due to academic commitments and
+          scheduling conflicts, I was unable to accept those offers at the time.
+          😅 🧑🏻‍🎓
+        </p>
+      </Card>
+      <a href="/">
+        <Card
+          blue={true}
+          borderColor={colors.yellow}
+          width="450px"
+          height="242px"
+          title="Posts"
+        >
+          <p>
+            Welcome to my posts page! Here, I share insights, tutorials, and
+            experiences related to development and technologies. Stay tuned for
+            regular updates and feel free to engage with the content!
+          </p>
+        </Card>
+      </a>
+    </ColumLayout>
+  </div>
 </Layout>
 <style>
- hr {
+  hr {
     border: 1px solid rgb(91, 91, 91);
     width: 100%;
     margin: 20px 0;
- }
+  }
 
+  #bigger-div {
+    display: flex;
+  }
+
+  @media (max-width: 1470px) {
+    *::before {
+      content: "La versión móvil no se encuentra disponible en este momento";
+    }
+    #bigger-div {
+      display: none;
+    }
+    .greeting {
+      display: none;
+    }
+  }
 </style>

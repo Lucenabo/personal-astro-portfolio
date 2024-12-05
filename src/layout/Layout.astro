@@ -1,36 +1,36 @@
 ---
-import LanguageCard from '../components/LanguageCard.astro'
+import LanguageCard from "../components/LanguageCard.astro";
 
 interface Props {
-  titlePage: string
-  language: string
+  titlePage: string;
+  language: string;
 }
 
-const { titlePage, language } = Astro.props
-
+const { titlePage, language } = Astro.props;
 ---
+
 <html lang={language}>
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{titlePage}</title>
-	</head>
-	<body>
-	<slot />
-	</body>
-	<style>
-	html {
-	height: 100vh;
-	}
-	body {
-	background-color: #242424;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	height: 100vh;
-	}
-	</style>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{titlePage}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+  <style>
+    html {
+      height: 100vh;
+    }
+    body {
+      background-color: #242424;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+  </style>
 </html>
