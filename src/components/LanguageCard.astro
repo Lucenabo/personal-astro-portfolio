@@ -1,43 +1,47 @@
 ---
-
-import Icon from "../components/Icon"
-
+import Icon from "../components/Icon";
 
 interface Props {
-  iconName: string,
-  color: string,
-  set: 'fa' | 'si',
-  showBorderAndShadow?: boolean
+  iconName: string;
+  color: string;
+  set: "fa" | "si";
+  showBorderAndShadow?: boolean;
 }
 
-const { iconName, color, set, showBorderAndShadow } = Astro.props
-
+const { iconName, color, set, showBorderAndShadow } = Astro.props;
 ---
 
-<div id="card-language" class={showBorderAndShadow ? 'border-shadow' : ''}>
-<Icon className="text-9xl svg-image" size={100} set={set} color={color} name={iconName} client:load/>
+<div id="card-language" class={showBorderAndShadow ? "border-shadow" : ""}>
+  <Icon
+    className="text-9xl svg-image"
+    size={100}
+    set={set}
+    color={color}
+    name={iconName}
+    client:load
+  />
 </div>
 <style>
-    #card-language {
-        width: 150px;
-        height: 150px;
-        background: #383838fc;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: .5rem;
-        cursor: pointer;
-        overflow: hidden;
-        transition: all .3s ease-in-out;
-    }
-    #card-language:hover {
-        transform: scale(1.1);
-        z-index: 10;
-    }
-    .border-shadow {
-        border: 1px solid #5b5b5b;
-    }
-    .border-shadow:hover {
-        box-shadow: 0 0 7px #fff;
-    }
+  #card-language {
+    width: 150px;
+    height: 150px;
+    background: #383838fc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+  }
+  #card-language:hover {
+    transform: scale(1.1);
+    z-index: 10;
+  }
+  .border-shadow {
+    border: 1px solid #5b5b5b;
+  }
+  .border-shadow:hover {
+    box-shadow: 0 0 7px #fff;
+  }
 </style>

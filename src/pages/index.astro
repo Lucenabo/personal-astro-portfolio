@@ -14,6 +14,8 @@ const titlePage = "Alejandro Lucena - Developer";
 
 // Functions
 import { Icon } from "astro-icon/components";
+import { FaGithub, FaLinkedin } from "react-icons/fa6";
+import { MdEmail } from "react-icons/md";
 ---
 
 <Layout language="en" titlePage={titlePage}>
@@ -167,44 +169,95 @@ import { Icon } from "astro-icon/components";
           😅 🧑🏻‍🎓
         </p>
       </Card>
-      <a href="/">
+      <a
+        href="/public/CV_AlejandroLucenaDiaz_en.pdf"
+        download="CV_AlejandroLucenaDiaz_en.pdf"
+      >
         <Card
           blue={true}
           borderColor={colors.yellow}
           width="450px"
           height="242px"
-          title="Posts"
+          title="Resume"
         >
           <p>
-            Welcome to my posts page! Here, I share insights, tutorials, and
-            experiences related to development and technologies. Stay tuned for
-            regular updates and feel free to engage with the content!
+            Click here to download my resumen! I hope you like it
+            <br />
+            ⬇😁
           </p>
         </Card>
       </a>
     </ColumLayout>
   </div>
+  <div>
+    <div class="social-media text-5xl text-white flex-row">
+      <a
+        href="mailto:alucena1002@gmail.com?subject=¡Hello%20Alejandro!&body=I%20would%20like20to%20contact%20with%20you%20because..."
+      >
+        <MdEmail />
+      </a>
+      <a href="https://www.github.com/Lucenabo">
+        <FaGithub />
+      </a>
+      <a href="https://www.linkedin.com/in/alucenad">
+        <FaLinkedin />
+      </a>
+    </div>
+    <div class="text-lg text-white button-email">
+      <button id="copy-button">alucena1002@gmail.com </button>
+      <p id="copied-message" class="mt-2 text-sm text-green-500 hidden">
+        Email copied!
+      </p>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const copyButton = document.getElementById("copy-button");
+        const copiedMessage = document.getElementById("copied-message");
+
+        if (!copyButton || !copiedMessage) {
+          console.error("Elementos del DOM no encontrados");
+          return;
+        }
+
+        copyButton.addEventListener("click", () => {
+          const email: string = "alucena1002@gmail.com";
+
+          navigator.clipboard
+            .writeText(email)
+            .then(() => {
+              copyButton.classList.add("hidden");
+              copiedMessage.classList.remove("hidden"); // Muestra el mensaje
+              setTimeout(() => copyButton.classList.remove("hidden"), 2000);
+              setTimeout(() => copiedMessage.classList.add("hidden"), 2000); // Oculta el mensaje después de 2 segundos
+            })
+            .catch((err: unknown) => {
+              console.error("Error al copiar al portapapeles:", err);
+            });
+        });
+      });
+    </script>
+    <style>
+      hr {
+        border: 1px solid rgb(91, 91, 91);
+        width: 100%;
+        margin: 20px 0;
+      }
+
+      #bigger-div {
+        display: flex;
+      }
+
+      @media (max-width: 1470px) {
+        *::before {
+          content: "La versión móvil no se encuentra disponible en este momento";
+        }
+        #bigger-div {
+          display: none;
+        }
+        .greeting {
+          display: none;
+        }
+      }
+    </style>
+  </div>
 </Layout>
-<style>
-  hr {
-    border: 1px solid rgb(91, 91, 91);
-    width: 100%;
-    margin: 20px 0;
-  }
-
-  #bigger-div {
-    display: flex;
-  }
-
-  @media (max-width: 1470px) {
-    *::before {
-      content: "La versión móvil no se encuentra disponible en este momento";
-    }
-    #bigger-div {
-      display: none;
-    }
-    .greeting {
-      display: none;
-    }
-  }
-</style>

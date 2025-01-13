@@ -30,6 +30,36 @@
   top: 0;
   animation: firstDiv 10s linear infinite;
 }
+
+.social-media {
+  position: absolute;
+  display: flex;
+  gap: 0.5rem;
+  right: 45px;
+  bottom: 50px;
+}
+
+.social-media > * {
+  transition: transform 0.3s ease;
+}
+
+.social-media > *:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+.button-email {
+  transition: transform 0.3s ease;
+  position: absolute;
+  right: 30px;
+  bottom: 20px;
+}
+
+.button-email:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
 @keyframes firstDiv {
   0% {
     left: 0px;

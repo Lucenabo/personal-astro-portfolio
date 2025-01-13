@@ -1,32 +1,32 @@
 ---
-// Rutas web
+// Web routes
 import Layout from "../../layout/Layout.astro";
 import Card from "../../components/Card.astro";
 import { colors, wordColors } from "../../utils/neonColors";
 import ColumLayout from "../../layout/ColumLayout.astro";
 import WordNeonColor from "../../components/WordNeonColor";
 import LanguageCard from "../../components/LanguageCard.astro";
-import TypeWritter from "../../components/TypeWritter.astro";
-// import WordNeonColorAstro from "../../components/WordNeonColorAstro.astro";
+import TypeWritter from "../..//components/TypeWritter.astro";
+import WordNeonColorAstro from "../../components/WordNeonColorAstro.astro";
 
-// Valores de la web
-const titlePage = "Alejandro Lucena - Desarrollador";
+// Web values
+const titlePage = "Alejandro Lucena - Developer";
 
-// Funciones
+// Functions
 import { Icon } from "astro-icon/components";
-import { MdEmail } from "react-icons/md";
 import { FaGithub, FaLinkedin } from "react-icons/fa6";
+import { MdEmail } from "react-icons/md";
 ---
 
-<Layout language="es" titlePage={titlePage}>
+<Layout language="en" titlePage={titlePage}>
   <div
-    class="gap-4 mb-8 text-white flex flex-col"
+    class="greeting gap-4 mb-8 text-white flex flex-col"
     style="margin-right: 1050px;"
   >
     <h1 class="text-5xl">Alejandro Lucena</h1>
     <h2>
       <TypeWritter
-        text="Desarrollador web, Android y Java"
+        text="Web, Android and Java developer"
         speed={150}
         delay={1000}
         showBlink={false}
@@ -35,49 +35,49 @@ import { FaGithub, FaLinkedin } from "react-icons/fa6";
       <!--
 <WordNeonColorAstro word="Web" color={wordColors.yellow} effect={false} />,
   <WordNeonColorAstro word="Web" color={wordColors.yellow} effect={false} />,
-   y
+   and
    <WordNeonColorAstro word="Web" color={wordColors.yellow} effect={false} />
-  desarrollador
+  developer
 -->
     </h2>
   </div>
 
-  <div style="display: flex; ">
+  <div id="bigger-div">
     <Card borderColor={colors.purple} width="600px" height="510px" title="">
       <p class="text-xl">
-        Mi nombre es <WordNeonColor
+        My name is <WordNeonColor
           client:load
           word="Alejandro Lucena"
           color={wordColors.blue}
           effect={true}
-        /> y soy estudiante de desarrollo de aplicaciones multiplataforma, Soy <WordNeonColor
+        /> and I am a student of cross-platform application development, I am <WordNeonColor
           client:load
-          word="autodidacta"
+          word="self-taught"
           color={wordColors.darkblue}
           effect={true}
-        /> así que aprendí desarrollo web por mi cuenta.
+        /> so I learned web development on own.
       </p>
       <hr />
       <p class="text-xl">
-        Tengo más de un año de experiencia en <WordNeonColor
+        I have over a year of experience in <WordNeonColor
           client:load
           word="Java"
           color={wordColors.orange}
           effect={true}
-        /> y algunos meses en
+        /> and some months in
         <WordNeonColor
           client:load
           word="JavaScript"
           color={wordColors.yellow}
           effect={true}
-        />. Realmente disfruto aprender por mi cuenta además de lo que se enseña
-        en clase.
+        />. I really enjoy learning on my own in addition to what is taught in
+        class.
       </p>
       <div class="flex gap-11 mt-12">
         <LanguageCard
           showBorderAndShadow={true}
           set="si"
-          color="#80b7ff"
+          color="#3358ff"
           iconName="SiMysql"
         />
         <LanguageCard
@@ -101,7 +101,7 @@ import { FaGithub, FaLinkedin } from "react-icons/fa6";
         borderColor={colors.blue}
         width="350px"
         height="242px"
-        title="Habilidades"
+        title="Skills"
       >
         <div class="wrapper flex gap-4">
           <div class="first">
@@ -133,7 +133,7 @@ import { FaGithub, FaLinkedin } from "react-icons/fa6";
           </div>
 
           <div class="eighth">
-            <LanguageCard set="si" color="#80b7ff" iconName="SiMysql" />
+            <LanguageCard set="si" color="#3358ff" iconName="SiMysql" />
           </div>
 
           <div class="ninth">
@@ -146,7 +146,7 @@ import { FaGithub, FaLinkedin } from "react-icons/fa6";
         borderColor={colors.green}
         width="350px"
         height="242px"
-        title="Certificación Reciente"
+        title="Recent Certification"
       >
         <Icon class="text-9xl flex m-auto" name="cambridge" />
         <p>First Certificate in English B2</p>
@@ -158,89 +158,106 @@ import { FaGithub, FaLinkedin } from "react-icons/fa6";
         borderColor={colors.red}
         width="450px"
         height="242px"
-        title="Experiencia Profesional"
+        title="Professional Expereience"
       >
         <p>
-          En este momento, estoy estudiando y no he tenido la oportunidad de
-          ganar experiencia profesional. He sido
-          <WordNeonColor word="contactado" color="#fff" effect={false} /> por algunas
-          empresas interesadas en mi perfil, pero debido a compromisos académicos
-          y conflictos de horarios, no pude aceptar esas ofertas en ese momento.
+          At the moment, I am studying and have not had the opportunity to gain
+          professional experience. I have been
+          <WordNeonColor word="contacted" color="#fff" effect={false} /> by some
+          companies interested in my profile, but due to academic commitments and
+          scheduling conflicts, I was unable to accept those offers at the time.
           😅 🧑🏻‍🎓
         </p>
       </Card>
       <a
-        href="/public/CV_AlejandroLucenaDiaz.pdf"
-        download="CV_AlejandroLucenaDiaz.pdf"
+        href="/public/CV_AlejandroLucenaDiaz_en.pdf"
+        download="CV_AlejandroLucenaDiaz_en.pdf"
       >
         <Card
           blue={true}
           borderColor={colors.yellow}
           width="450px"
           height="242px"
-          title="Curriculum"
+          title="Resume"
         >
           <p>
-            ¡Pulsa aquí para descargar el currículum! <br />
-            Espero que te guste ⬇😁
+            Click here to download my resumen! I hope you like it
+            <br />
+            ⬇😁
           </p>
         </Card>
       </a>
     </ColumLayout>
-    <div>
-      <div class="social-media text-5xl text-white flex-row">
-        <a
-          href="mailto:alucena1002@gmail.com?subject=¡Hola%20Alejandro!&body=Me%20gustaría%20contactar%20con%20usted%20porque..."
-        >
-          <MdEmail />
-        </a>
-        <a href="https://www.github.com/Lucenabo">
-          <FaGithub />
-        </a>
-        <a href="https://www.linkedin.com/in/alucenad">
-          <FaLinkedin />
-        </a>
-      </div>
-      <div class="text-lg text-white button-email">
-        <button id="copy-button">alucena1002@gmail.com </button>
-        <p id="copied-message" class="mt-2 text-sm text-green-500 hidden">
-          ¡Correo copiado!
-        </p>
-      </div>
-      <script>
-        document.addEventListener("DOMContentLoaded", () => {
-          const copyButton = document.getElementById("copy-button");
-          const copiedMessage = document.getElementById("copied-message");
-
-          if (!copyButton || !copiedMessage) {
-            console.error("Elementos del DOM no encontrados");
-            return;
-          }
-
-          copyButton.addEventListener("click", () => {
-            const email: string = "alucena1002@gmail.com";
-
-            navigator.clipboard
-              .writeText(email)
-              .then(() => {
-                copyButton.classList.add("hidden");
-                copiedMessage.classList.remove("hidden"); // Muestra el mensaje
-                setTimeout(() => copyButton.classList.remove("hidden"), 2000);
-                setTimeout(() => copiedMessage.classList.add("hidden"), 2000); // Oculta el mensaje después de 2 segundos
-              })
-              .catch((err: unknown) => {
-                console.error("Error al copiar al portapapeles:", err);
-              });
-          });
-        });
-      </script>
-    </div>
   </div>
-  <style>
-    hr {
-      border: 1px solid rgb(91, 91, 91);
-      width: 100%;
-      margin: 20px 0;
-    }
-  </style>
+  <div>
+    <div class="social-media text-5xl text-white flex-row">
+      <a
+        href="mailto:alucena1002@gmail.com?subject=¡Hello%20Alejandro!&body=I%20would%20like20to%20contact%20with%20you%20because..."
+      >
+        <MdEmail />
+      </a>
+      <a href="https://www.github.com/Lucenabo">
+        <FaGithub />
+      </a>
+      <a href="https://www.linkedin.com/in/alucenad">
+        <FaLinkedin />
+      </a>
+    </div>
+    <div class="text-lg text-white button-email">
+      <button id="copy-button">alucena1002@gmail.com </button>
+      <p id="copied-message" class="mt-2 text-sm text-green-500 hidden">
+        Email copied!
+      </p>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const copyButton = document.getElementById("copy-button");
+        const copiedMessage = document.getElementById("copied-message");
+
+        if (!copyButton || !copiedMessage) {
+          console.error("Elementos del DOM no encontrados");
+          return;
+        }
+
+        copyButton.addEventListener("click", () => {
+          const email: string = "alucena1002@gmail.com";
+
+          navigator.clipboard
+            .writeText(email)
+            .then(() => {
+              copyButton.classList.add("hidden");
+              copiedMessage.classList.remove("hidden"); // Muestra el mensaje
+              setTimeout(() => copyButton.classList.remove("hidden"), 2000);
+              setTimeout(() => copiedMessage.classList.add("hidden"), 2000); // Oculta el mensaje después de 2 segundos
+            })
+            .catch((err: unknown) => {
+              console.error("Error al copiar al portapapeles:", err);
+            });
+        });
+      });
+    </script>
+    <style>
+      hr {
+        border: 1px solid rgb(91, 91, 91);
+        width: 100%;
+        margin: 20px 0;
+      }
+
+      #bigger-div {
+        display: flex;
+      }
+
+      @media (max-width: 1470px) {
+        *::before {
+          content: "La versión móvil no se encuentra disponible en este momento";
+        }
+        #bigger-div {
+          display: none;
+        }
+        .greeting {
+          display: none;
+        }
+      }
+    </style>
+  </div>
 </Layout>

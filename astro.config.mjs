@@ -12,13 +12,16 @@ import netlify from "@astrojs/netlify";
 // https://astro.build/config
 export default defineConfig({
   i18n: {
-    defaultLocale: "en",
     locales: ["en", "es"],
+    defaultLocale: "en",
+    routing: {
+      prefixDefaultLocale: true,
+    },
   },
 
   integrations: [tailwind(), react(), icon()],
   output: "server",
   adapter: netlify({
-    edgeMiddleware: true
+    edgeMiddleware: true,
   }),
 });
