@@ -1,0 +1,50 @@
+---
+const currentLang = Astro.url.pathname.startsWith("/en") ? "en" : "es";
+const otherLang = currentLang === "en" ? "es" : "en";
+
+// Usamos rutas absolutas para evitar concatenaciones erróneas
+const routes = {
+  en: "/en/", // Ruta correcta para la página en inglés
+  es: "/es/", // Ruta correcta para la página en español
+};
+---
+
+<div class="language-switch">
+  <a
+    href={routes.en}
+    title="English"
+    aria-current={currentLang === "en" ? "page" : undefined}
+  >
+    🇬🇧
+  </a>
+  <a
+    href={routes.es}
+    title="Español"
+    aria-current={currentLang === "es" ? "page" : undefined}
+  >
+    🇪🇸
+  </a>
+</div>
+
+<style>
+  .language-switch {
+    display: flex;
+    gap: 10px;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+  }
+  .language-switch a {
+    font-size: 2rem;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .language-switch a:hover {
+    transform: scale(1.2);
+  }
+  .language-switch a[aria-current="page"] {
+    opacity: 0.5;
+    cursor: default;
+    pointer-events: none;
+  }
+</style>

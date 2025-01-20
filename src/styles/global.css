@@ -60,6 +60,12 @@
   cursor: pointer;
 }
 
+.language-div {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+}
+
 @keyframes firstDiv {
   0% {
     left: 0px;

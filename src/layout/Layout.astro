@@ -1,5 +1,5 @@
 ---
-import LanguageCard from "../components/LanguageCard.astro";
+import { ViewTransitions } from "astro:transitions";
 
 interface Props {
   titlePage: string;
@@ -17,10 +17,9 @@ const { titlePage, language } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{titlePage}</title>
   </head>
-  <body>
+  <body transition:animate="slide">
     <slot />
-  </body>
-  <style>
+  </body><style>
     html {
       height: 100vh;
     }

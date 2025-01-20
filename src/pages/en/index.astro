@@ -7,7 +7,7 @@ import ColumLayout from "../../layout/ColumLayout.astro";
 import WordNeonColor from "../../components/WordNeonColor";
 import LanguageCard from "../../components/LanguageCard.astro";
 import TypeWritter from "../..//components/TypeWritter.astro";
-import WordNeonColorAstro from "../../components/WordNeonColorAstro.astro";
+//import WordNeonColorAstro from "../../components/WordNeonColorAstro.astro";
 
 // Web values
 const titlePage = "Alejandro Lucena - Developer";
@@ -16,6 +16,7 @@ const titlePage = "Alejandro Lucena - Developer";
 import { Icon } from "astro-icon/components";
 import { FaGithub, FaLinkedin } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
+import LanguageSwitcher from "../../components/LanguageSwitcher.astro";
 ---
 
 <Layout language="en" titlePage={titlePage}>
@@ -170,7 +171,7 @@ import { MdEmail } from "react-icons/md";
         </p>
       </Card>
       <a
-        href="https://drive.google.com/file/d/1u_FMYp_jQ3bFVuJvZ0avmbszg_HEwVd8/view?usp=sharing"
+        href="https://drive.google.com/drive/folders/13UOUFO6b1OivYD_AHyqh48CKCF-qtx_B?usp=sharing"
       >
         <Card
           blue={true}
@@ -208,55 +209,57 @@ import { MdEmail } from "react-icons/md";
         Email copied!
       </p>
     </div>
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const copyButton = document.getElementById("copy-button");
-        const copiedMessage = document.getElementById("copied-message");
-
-        if (!copyButton || !copiedMessage) {
-          console.error("Elementos del DOM no encontrados");
-          return;
-        }
-
-        copyButton.addEventListener("click", () => {
-          const email: string = "alucena1002@gmail.com";
-
-          navigator.clipboard
-            .writeText(email)
-            .then(() => {
-              copyButton.classList.add("hidden");
-              copiedMessage.classList.remove("hidden"); // Muestra el mensaje
-              setTimeout(() => copyButton.classList.remove("hidden"), 2000);
-              setTimeout(() => copiedMessage.classList.add("hidden"), 2000); // Oculta el mensaje después de 2 segundos
-            })
-            .catch((err: unknown) => {
-              console.error("Error al copiar al portapapeles:", err);
-            });
-        });
-      });
-    </script>
-    <style>
-      hr {
-        border: 1px solid rgb(91, 91, 91);
-        width: 100%;
-        margin: 20px 0;
-      }
-
-      #bigger-div {
-        display: flex;
-      }
-
-      @media (max-width: 1470px) {
-        *::before {
-          content: "La versión móvil no se encuentra disponible en este momento";
-        }
-        #bigger-div {
-          display: none;
-        }
-        .greeting {
-          display: none;
-        }
-      }
-    </style>
   </div>
+  <LanguageSwitcher />
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const copyButton = document.getElementById("copy-button");
+      const copiedMessage = document.getElementById("copied-message");
+
+      if (!copyButton || !copiedMessage) {
+        console.error("Elementos del DOM no encontrados");
+        return;
+      }
+
+      copyButton.addEventListener("click", () => {
+        const email: string = "alucena1002@gmail.com";
+
+        navigator.clipboard
+          .writeText(email)
+          .then(() => {
+            copyButton.classList.add("hidden");
+            copiedMessage.classList.remove("hidden"); // Muestra el mensaje
+            setTimeout(() => copyButton.classList.remove("hidden"), 2000);
+            setTimeout(() => copiedMessage.classList.add("hidden"), 2000); // Oculta el mensaje después de 2 segundos
+          })
+          .catch((err: unknown) => {
+            console.error("Error al copiar al portapapeles:", err);
+          });
+      });
+    });
+  </script>
+  <style>
+    hr {
+      border: 1px solid rgb(91, 91, 91);
+      width: 100%;
+      margin: 20px 0;
+    }
+
+    #bigger-div {
+      display: flex;
+    }
+
+    @media (max-width: 1470px) {
+      *::before {
+        content: "La versión móvil no se encuentra disponible en este momento";
+      }
+      #bigger-div {
+        display: none;
+      }
+      .greeting {
+        display: none;
+      }
+    }
+  </style>
 </Layout>
