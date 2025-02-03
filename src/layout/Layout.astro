@@ -16,6 +16,15 @@ const { titlePage, language } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{titlePage}</title>
+    <script type="text/partytown">
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-3743GP7D14");
+    </script>
   </head>
   <body transition:animate="slide">
     <slot />
@@ -37,13 +46,4 @@ const { titlePage, language } = Astro.props;
     type="text/partytown"
     async
     src="https://www.googletagmanager.com/gtag/js?id=G-3743GP7D14"></script>
-  <script type="text/partytown">
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag("js", new Date());
-
-    gtag("config", "G-3743GP7D14");
-  </script>
 </html>
