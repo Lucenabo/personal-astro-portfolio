@@ -32,4 +32,18 @@ const { titlePage, language } = Astro.props;
       height: 100vh;
     }
   </style>
+  <!-- Google tag (gtag.js) -->
+  <script
+    type="text/partytown"
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-3743GP7D14"></script>
+  <script type="text/partytown">
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "G-3743GP7D14");
+  </script>
 </html>

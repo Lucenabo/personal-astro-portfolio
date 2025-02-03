@@ -9,6 +9,8 @@ import icon from "astro-icon";
 
 import netlify from "@astrojs/netlify";
 
+import partytown from "@astrojs/partytown";
+
 // https://astro.build/config
 export default defineConfig({
   i18n: {
@@ -19,7 +21,16 @@ export default defineConfig({
     },
   },
 
-  integrations: [tailwind(), react(), icon()],
+  integrations: [
+    tailwind(),
+    react(),
+    icon(),
+    partytown({
+      config: {
+        forward: ["dataLayer.push"],
+      },
+    }),
+  ],
   output: "server",
   adapter: netlify({
     edgeMiddleware: true,
